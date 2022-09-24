@@ -1,0 +1,6 @@
+CREATE TABLE BOOK2(
+BookId VARCHAR2(6) UNIQUE CHECK(BookId LIKE 'B%'),
+Title VARCHAR2(50),
+AuthorName VARCHAR2(20),
+Genre VARCHAR2(10) CHECK(Genre IN('Mystery', 'Thriller')),
+YearNo Date);
