@@ -1,0 +1,12 @@
+Create table Item(
+Itemcode Varchar2(30) CONSTRAINT Item_Itemcode_PK Primary Key,
+Itemtype varchar2(30),
+Description Varchar2(50) Not Null,
+Price Number(5,2),
+Category Char(1));
+
+ALTER TABLE Item ADD Discount Number;
+ALTER TABLE Item MODIFY(Description VARCHAR2(45), Category VARCHAR2(5)); 
+ALTER TABLE Item RENAME COLUMN Description TO ItemDescription;
+ALTER TABLE Item DROP (Itemtype);
+ALTER TABLE Item DROP CONSTRAINT Item_Itemcode_PK;
