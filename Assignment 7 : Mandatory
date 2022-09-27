@@ -1,0 +1,8 @@
+CREATE TABLE Bill(
+    BillNo NUMBER CONSTRAINT Bill_BNO_PK PRIMARY KEY,
+    StoreName VARCHAR2(20) CONSTRAINT Bill_SName_FK REFERENCES Store(StoreName),
+    Shopperid NUMBER CONSTRAINT Bill_SID_FK REFERENCES Shopper(ShopperId),
+    ArCode CHAR(5) CONSTRAINT Bill_ArCode_FK REFERENCES Article(ArCode),
+    Amount NUMBER,
+    BillDate Date,
+    Quantity NUMBER(4) DEFAULT 1 CHECK(Quantity>0));
