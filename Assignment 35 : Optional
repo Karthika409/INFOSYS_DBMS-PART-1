@@ -1,0 +1,1 @@
+INSERT INTO Address(HouseNo, Street, City, Zip, state) VALUES(350, 'Electronics City', 'Mysore', 570018, 'Karnataka');
