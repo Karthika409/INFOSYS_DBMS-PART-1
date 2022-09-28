@@ -1,0 +1,1 @@
+SELECT QUOTATIONID, SNAME FROM Quotation WHERE Qstatus IN('Accepted', 'Rejected');
