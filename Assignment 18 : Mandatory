@@ -1,0 +1,6 @@
+Valid Data:
+INSERT INTO Bill (BillNo, StoreName, Shopperid, ArCode, Amount, BillDate, Quantity) VALUES (1001, 'Loyal World', 101, 'A1001', 1000, '20-OCT-15', 2);
+
+Invalid Data:
+INSERT INTO Bill (BillNo, StoreName, Shopperid, ArCode, Amount, BillDate, Quantity) VALUES (1002, 'Loyal World', 101, 'A1002', 1000, '15-OCT-15', 10);
+ORA-02291: integrity constraint (L210497.SYS_C00200058926) violated - parent key not found
