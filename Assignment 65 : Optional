@@ -1,0 +1,1 @@
+SELECT ORDERID, MONTHS_BETWEEN(Orderdate,Pymtdate) AS "No of Months" FROM ORDERS;
