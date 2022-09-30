@@ -1,0 +1,1 @@
+SELECT SNAME||' is from ' ||Location AS "RESULT" FROM SalesMan;
