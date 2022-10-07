@@ -1,0 +1,1 @@
+SELECT SNAME, AVG(Quotedprice) "Average quoted price" FROM Quotation WHERE Qstatus='Closed' GROUP BY SNAME HAVING AVG(Quotedprice)>'500';
