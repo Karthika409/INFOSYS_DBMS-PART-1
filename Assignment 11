@@ -1,0 +1,1 @@
+SELECT ITEMCODE, AVG(Qtyavailable) AS "Average Quantity" FROM Retailstock GROUP BY ITEMCODE HAVING AVG(Qtyavailable)<75;
