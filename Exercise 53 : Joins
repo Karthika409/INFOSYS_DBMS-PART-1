@@ -1,0 +1,5 @@
+SELECT S1.Location, P1.Category, SUM(S3.Quantity) "Total Quantity" 
+FROM Sale S2 INNER JOIN Salesman S1 
+ON S2.Sid=S1.Sid INNER JOIN Saledetail S3 
+ON S2.Saleid=S3.Saleid INNER JOIN Product P1 
+ON P1.Prodid=S3.Prodid GROUP BY S1.Location, P1.Category;
