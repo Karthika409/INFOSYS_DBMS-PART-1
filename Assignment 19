@@ -1,0 +1,17 @@
+Retrieve employee name, designation, and email id of those employees who work in the same retail outlet where George works. 
+Do not display the record of George in the result.
+
+Database structure
+Item (Itemcode, Itemtype, Descr, Price, Reorderlevel, Qtyonhand, Category)
+Quotation (Quotationid, Sname, Itemcode, Quotedprice, Qdate, Qstatus)
+Orders (Orderid, Quotationid, Qtyordered, Orderdate, Status, Pymtdate, Delivereddate, Amountpaid, Pymtmode)
+Retailoutlet (Roid, Location, Managerid)
+Empdetails (Empid, Empname, Designation, Emailid, Contactno, Worksin, Salary)
+Retailstock (Roid, Itemcode, Unitprice, Qtyavailable)
+Customer (Custid, Custtype, Custname, Gender, Spouse, Emailid, Address)
+Purchasebill (Billid, Roid, Itemcode, Custid, Billamount, Billdate, Quantity)
+
+SELECT E1.EMPNAME, E1.DESIGNATION, E1.EMAILID 
+FROM EMPDETAILS E1 INNER JOIN EMPDETAILS E2 
+ON E1.WORKSIN=E2.WORKSIN 
+WHERE E2.EMPNAME='George' AND E1.EMPNAME<>'George';
