@@ -1,0 +1,15 @@
+Display itemcode, descr, billamount and custid for all items of type 'FMCG'. Display billamount and custid as zero if item is not sold.
+
+Expected Result :
+
+ITEMCODE	  DESCR	                BILLAMOUNT	CUSTID
+I1002	    Best Rice	                342.38	   2001
+I1001	    Britannia Marie 
+          Gold Cookies	            86.62	     2002
+I1003	    Modern Bread	            64.2	     2003
+I1002	     Best Rice	              283.28	   2005
+I1014	    Aroma Bread	                0	        0
+
+SELECT I.ITEMCODE, I.DESCR, NVL(P.BILLAMOUNT,0) BILLAMOUNT, NVL(P.CUSTID,0) CUSTID 
+FROM ITEM I LEFT OUTER JOIN PURCHASEBILL P 
+ON I.ITEMCODE=P.ITEMCODE LEFT OUTER JOIN CUSTOMER C ON C.CUSTID=P.CUSTID WHERE I.ITEMTYPE='FMCG';
