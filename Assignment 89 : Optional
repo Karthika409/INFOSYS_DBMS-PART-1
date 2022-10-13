@@ -1,0 +1,16 @@
+The management of EasyShop would like to know the qtyavailable for items at retail outlets. Display itemcode, description, qtyavailable and roid for those items.
+
+Database structure
+Item (Itemcode, Itemtype, Descr, Price, Reorderlevel, Qtyonhand, Category)
+Quotation (Quotationid, Sname, Itemcode, Quotedprice, Qdate, Qstatus)
+Orders (Orderid, Quotationid, Qtyordered, Orderdate, Status, Pymtdate, Delivereddate, Amountpaid, Pymtmode)
+Retailoutlet (Roid, Location, Managerid)
+Empdetails (Empid, Empname, Designation, Emailid, Contactno, Worksin, Salary)
+Retailstock (Roid, Itemcode, Unitprice, Qtyavailable)
+Customer (Custid, Custtype, Custname, Gender, Spouse, Emailid, Address)
+Purchasebill (Billid, Roid, Itemcode, Custid, Billamount, Billdate, Quantity)
+
+SELECT I.ITEMCODE, I.DESCR, R1.ROID, R2.QTYAVAILABLE 
+FROM ITEM I RIGHT OUTER JOIN RETAILSTOCK R2 
+ON R2.ITEMCODE=I.ITEMCODE RIGHT OUTER JOIN RETAILOUTLET R1 
+ON R1.ROID=R2.ROID;
