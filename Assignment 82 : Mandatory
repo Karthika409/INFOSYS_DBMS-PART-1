@@ -1,0 +1,14 @@
+Display the retailoutlet details like roid, location along with the employee details like empid and empname working in it. 
+The details of retailoutlet should be displayed even if no employee is working in it.
+
+Database structure
+Item (Itemcode, Itemtype, Descr, Price, Reorderlevel, Qtyonhand, Category)
+Quotation (Quotationid, Sname, Itemcode, Quotedprice, Qdate, Qstatus)
+Orders (Orderid, Quotationid, Qtyordered, Orderdate, Status, Pymtdate, Delivereddate, Amountpaid, Pymtmode)
+Retailoutlet (Roid, Location, Managerid)
+Empdetails (Empid, Empname, Designation, Emailid, Contactno, Worksin, Salary)
+Retailstock (Roid, Itemcode, Unitprice, Qtyavailable)
+Customer (Custid, Custtype, Custname, Gender, Spouse, Emailid, Address)
+Purchasebill (Billid, Roid, Itemcode, Custid, Billamount, Billdate, Quantity)
+
+SELECT E.EMPID, E.EMPNAME, R1.ROID, R1.LOCATION FROM RETAILOUTLET R1 LEFT OUTER JOIN EMPDETAILS E ON R1.ROID=E.WORKSIN; 
