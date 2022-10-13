@@ -1,0 +1,18 @@
+For items of type Apparels, identify quantity available at each retail outlet location. 
+Display itemcode, item description, quantity available and retail outlet location.
+
+Database structure
+Item (Itemcode, Itemtype, Descr, Price, Reorderlevel, Qtyonhand, Category)
+Quotation (Quotationid, Sname, Itemcode, Quotedprice, Qdate, Qstatus)
+Orders (Orderid, Quotationid, Qtyordered, Orderdate, Status, Pymtdate, Delivereddate, Amountpaid, Pymtmode)
+Retailoutlet (Roid, Location, Managerid)
+Empdetails (Empid, Empname, Designation, Emailid, Contactno, Worksin, Salary)
+Retailstock (Roid, Itemcode, Unitprice, Qtyavailable)
+Customer (Custid, Custtype, Custname, Gender, Spouse, Emailid, Address)
+Purchasebill (Billid, Roid, Itemcode, Custid, Billamount, Billdate, Quantity)
+
+SELECT I.ITEMCODE, I.DESCR, R1.LOCATION, R2.QTYAVAILABLE 
+FROM RETAILOUTLET R1 INNER JOIN RETAILSTOCK R2 
+ON R1.ROID=R2.ROID INNER JOIN ITEM I 
+ON I.ITEMCODE=R2.ITEMCODE 
+WHERE I.ITEMTYPE='Apparels';
