@@ -1,0 +1,15 @@
+Identify the quotations submitted for all items. Display itemcode, item description and quotationid for the same. 
+If the item does not have any quotation, display 'No quotation received' for quotationid.
+
+Database structure
+Item (Itemcode, Itemtype, Descr, Price, Reorderlevel, Qtyonhand, Category)
+Quotation (Quotationid, Sname, Itemcode, Quotedprice, Qdate, Qstatus)
+Orders (Orderid, Quotationid, Qtyordered, Orderdate, Status, Pymtdate, Delivereddate, Amountpaid, Pymtmode)
+Retailoutlet (Roid, Location, Managerid)
+Empdetails (Empid, Empname, Designation, Emailid, Contactno, Worksin, Salary)
+Retailstock (Roid, Itemcode, Unitprice, Qtyavailable)
+Customer (Custid, Custtype, Custname, Gender, Spouse, Emailid, Address)
+Purchasebill (Billid, Roid, Itemcode, Custid, Billamount, Billdate, Quantity)
+
+SELECT I.ITEMCODE, I.DESCR, NVL(Q.QUOTATIONID, 'No quotation received') AS QUOTATIONID
+FROM ITEM I LEFT OUTER JOIN QUOTATION Q ON I.ITEMCODE=Q.ITEMCODE;
